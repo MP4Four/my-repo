@@ -25,3 +25,16 @@ pull 指令会自动合并，如果没有冲突就合并成功，有冲突就需
 
 git fetch 会获取远程仓库的修改内容，然后等待我们手动合并
 修改了这一行
+
+# 分支
+## 查看
+git branch
+
+## 新建
+git branch dev
+
+## 切换
+git checkout dev  (deprecated)
+ps: checkout dev，dev有可能是文件也有可能是分支名，如果二者相同，就会有歧义，checkout默认会切换分支，git在 v2.23 版本后添加了新命令 switch 用来专门切换分支
+
+git switch dev
