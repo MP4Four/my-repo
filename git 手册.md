@@ -38,3 +38,7 @@ git checkout dev  (deprecated)
 ps: checkout dev，dev有可能是文件也有可能是分支名，如果二者相同，就会有歧义，checkout默认会切换分支，git在 v2.23 版本后添加了新命令 switch 用来专门切换分支
 
 git switch dev
+
+## 合并
+git merge dev
+dev 为将要被合并的分支，当前所在的分支就是合并后的目标分支
