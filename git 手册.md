@@ -35,15 +35,32 @@ git branch dev
 
 ## 切换
 git checkout dev  (deprecated)
-ps: checkout dev，dev有可能是文件也有可能是分支名，如果二者相同，就会有歧义，checkout默认会切换分支，git在 v2.23 版本后添加了新命令 switch 用来专门切换分支
+>ps: checkout dev，dev有可能是文件也有可能是分支名，如果二者相同，就会有歧义，checkout默认会切换分支，git在 v2.23 版本后添加了新命令 switch 用来专门切换分支
 
 git switch dev
+git checkout -b dev sha256    # 切换到某时间点分支
 
 ## 合并
 git merge dev
+
 dev 为将要被合并的分支，当前所在的分支就是合并后的目标分支
 
 ## 删除
 git branch -d dev
+
 如果 dev 已经被合并到其它分支了，就可以使用此命令来删除这个分支
+
 如果没有合并，-d 就删除不了，需要用 -D 强制删除
+
+# 解决冲突
+git merge 会显示失败，（此时可以git merge --abort中止合并）。要想解决冲突，需要手动修改，再 add，再commit
+
+# rebase （变基）
+git switch dev
+git rebase main
+这两步相当于 main += dev
+git switch main
+git rebase dev
+这两步相当于 dev += main
+![base说明](.\rebase.png)
+
